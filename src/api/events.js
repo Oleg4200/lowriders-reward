@@ -1,82 +1,82 @@
 /**
  * Services
  */
- import { juster } from "@/services/sdk"
+ import { juster } from "../services/sdk"
 
     /**
      * GQL: Queries
      */
     import {
-        getAllEvents,
-        getTopEvents,
-        getEventById,
-        getEventsByMarket,
-        getEventsByStatus,
-        getEventParticipants,
-    } from "@/graphql/queries/events"
+        // getAllEvents,
+        // getTopEvents,
+        // getEventById,
+        // getEventsByMarket,
+        // getEventsByStatus,
+        getEventParticipants
+    } from "../graphql/queries/events"
     
-    export const fetchAllEvents = async () => {
-        try {
-            const { data } = await juster.apollo.query({
-                query: getAllEvents,
-            })
+    // export const fetchAllEvents = async () => {
+    //     try {
+    //         const { data } = await juster.apollo.query({
+    //             query: getAllEvents,
+    //         })
     
-            return data.event
-        } catch (error) {
-            console.error(
-                `Error during fetching all events \n\n ${error.name}: ${error.message}`,
-            )
-            return []
-        }
-    }
+    //         return data.event
+    //     } catch (error) {
+    //         console.error(
+    //             `Error during fetching all events \n\n ${error.name}: ${error.message}`,
+    //         )
+    //         return []
+    //     }
+    // }
     
-    export const fetchEventsByStatus = async ({ status }) => {
-        try {
-            const { data } = await juster.apollo.query({
-                query: getEventsByStatus,
-                variables: { status },
-            })
+    // export const fetchEventsByStatus = async ({ status }) => {
+    //     try {
+    //         const { data } = await juster.apollo.query({
+    //             query: getEventsByStatus,
+    //             variables: { status },
+    //         })
     
-            return data.event
-        } catch (error) {
-            console.error(
-                `Error during fetching events by status \n\n ${error.name}: ${error.message}`,
-            )
-            return []
-        }
-    }
+    //         return data.event
+    //     } catch (error) {
+    //         console.error(
+    //             `Error during fetching events by status \n\n ${error.name}: ${error.message}`,
+    //         )
+    //         return []
+    //     }
+    // }
     
-    export const fetchEventsByMarket = async ({ id, status }) => {
-        try {
-            const { data } = await juster.apollo.query({
-                query: getEventsByMarket,
-                variables: { id, status },
-            })
+    // export const fetchEventsByMarket = async ({ id, status }) => {
+    //     try {
+    //         const { data } = await juster.apollo.query({
+    //             query: getEventsByMarket,
+    //             variables: { id, status },
+    //         })
     
-            return data.event
-        } catch (error) {
-            console.error(
-                `Error during fetching events by id \n\n ${error.name}: ${error.message}`,
-            )
-            return []
-        }
-    }
+    //         return data.event
+    //     } catch (error) {
+    //         console.error(
+    //             `Error during fetching events by id \n\n ${error.name}: ${error.message}`,
+    //         )
+    //         return []
+    //     }
+    // }
     
-    export const fetchEventById = async ({ id }) => {
-        try {
-            const { data } = await juster.apollo.query({
-                query: getEventById,
-                variables: { id },
-            })
+    // export const fetchEventById = async ({ id }) => {
+    //     try {
+    //         const { data } = await juster.apollo.query({
+    //             query: getEventById,
+    //             variables: { id },
+    //         })
     
-            return data.eventByPk
-        } catch (error) {
-            console.error(
-                `Error during fetching event by id \n\n ${error.name}: ${error.message}`,
-            )
-            return []
-        }
-    }
+    //         return data.eventByPk
+    //     } catch (error) {
+    //         console.error(
+    //             `Error during fetching event by id \n\n ${error.name}: ${error.message}`,
+    //         )
+    //         return []
+    //     }
+    // }
     
     export const fetchEventParticipants = async ({ id }) => {
         try {
@@ -94,18 +94,18 @@
         }
     }
     
-    export const fetchTopEvents = async ({ limit }) => {
-        try {
-            const { data } = await juster.apollo.query({
-                query: getTopEvents,
-                variables: { limit },
-            })
+    // export const fetchTopEvents = async ({ limit }) => {
+    //     try {
+    //         const { data } = await juster.apollo.query({
+    //             query: getTopEvents,
+    //             variables: { limit },
+    //         })
     
-            return data.event
-        } catch (error) {
-            console.error(
-                `Error during fetching top events \n\n ${error.name}: ${error.message}`,
-            )
-            return []
-        }
-    }
+    //         return data.event
+    //     } catch (error) {
+    //         console.error(
+    //             `Error during fetching top events \n\n ${error.name}: ${error.message}`,
+    //         )
+    //         return []
+    //     }
+    // }
