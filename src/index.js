@@ -3,11 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Welcome from './Components/Welcome.js';
+import EventDetails from './Components/EventDetails.js';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App/>}>
+        <Route index element={<Welcome />} />
+        <Route path="events" element={<Welcome />}/>
+        <Route path="events/:eventId" element={<EventDetails />} />
+        <Route
+          path="*"
+          element={
+             <main style={{ padding: "1rem" }}>
+               <p>There's nothing here!</p>
+            </main>
+          }
+        />
+      </Route>
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
